@@ -66,7 +66,7 @@ wait_for_db() {
     while ! nc -z "$db_address" "$db_port" >/dev/null; do
         counter=$((counter + 1))
         if [ $counter == 30 ]; then
-            log "Error: Couldn't connect to db_host."
+            log "Error: Couldn't connect to the database"
             exit 1
         fi
         log "Trying to connect to mariadb at $db_address. Attempt $counter."
