@@ -62,7 +62,7 @@ wait_for_db() {
     local db_address
     db_address=$(getent hosts "$db_host" | awk '{ print $1 }')
     local counter=0
-    log "Connecting to $db_host at $db_address:$db_port"
+    log "Connecting to database at ${db_address}:${db_port}"
     while ! nc -z "$db_address" "$db_port" >/dev/null; do
         counter=$((counter + 1))
         if [ $counter == 30 ]; then
